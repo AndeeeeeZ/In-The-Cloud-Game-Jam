@@ -1,4 +1,6 @@
-- Increase min spawn size
 - Revise spawn to avoid overlapping with each other
-- Fix collider not scaling
+- Spawn in direction of movement
 - Fix pool deleting stuff within screen to spawn more
+- Add score
+- Add timer
+- Fix screen jitter

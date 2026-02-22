@@ -281,7 +281,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.23359433, g: 0.37021536, b: 0.5849056, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -754,8 +754,9 @@ MonoBehaviour:
   player: {fileID: 1279434569}
   spawnRadius: 10
   spawnInterval: 0.2
-  spawnBuffer: 5
-  initialAmount: 2
+  spawnBufferMin: 1
+  spawnBufferMax: 15
+  initialAmount: 10
 --- !u!4 &1373198258
 Transform:
   m_ObjectHideFlags: 0

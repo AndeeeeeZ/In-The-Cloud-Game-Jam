@@ -12,7 +12,7 @@ public class CloudSpawner : MonoBehaviour
     [Header("Values")]
     [SerializeField] private float spawnRadius = 10f;
     [SerializeField] private float spawnInterval = 1f;
-    [SerializeField] private float spawnBuffer;
+    [SerializeField] private float spawnBufferMin, spawnBufferMax;
     [SerializeField] private int initialAmount;
 
     private Camera cam;
@@ -48,7 +48,7 @@ public class CloudSpawner : MonoBehaviour
     private void SpawnCloudOutsideOfScreen()
     {
         float camRadius = GetCameraRadius();
-        float buffer = Random.Range(0, spawnBuffer) * player.SizeScaleRatio();
+        float buffer = Random.Range(spawnBufferMin, spawnBufferMax) * player.SizeScaleRatio();
 
         float spawnRadius = camRadius + buffer;
 
@@ -64,7 +64,7 @@ public class CloudSpawner : MonoBehaviour
 
         int size = sizes[Random.Range(0, sizes.Length)];
         size += player.Size; // Make sure clouds smaller than player stops spawning
-        size = Mathf.Max(1, size); 
+        // size = Mathf.Max(1, size); 
 
         Sprite sprite = sprites[Random.Range(0, sprites.Length)];
 

@@ -50,6 +50,11 @@ public class CloudObjectPool : MonoBehaviour
 
     public GameObject Get()
     {
+        if (pool == null)
+        {
+            Debug.LogWarning("ERROR: No pool found"); 
+            return null; 
+        }
         return pool.Get();
     }
 

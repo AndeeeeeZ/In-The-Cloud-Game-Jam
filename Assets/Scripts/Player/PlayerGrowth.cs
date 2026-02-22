@@ -3,15 +3,15 @@ using UnityEngine;
 public class PlayerGrowth : MonoBehaviour
 {
     [SerializeField] private float baseExpPerCloud, scaleUpSpeed;
-    [SerializeField] private Transform spritesParent; 
+    [SerializeField] private Transform spritesParent;
     [SerializeField] private CameraController cameraController;
-    [SerializeField] private IntEvent OnPlayerSizeChanged; 
+    [SerializeField] private IntEvent OnPlayerSizeChanged;
 
-    public int Size { get; private set; } = 1; // Size used for size comparison
+    public int Size { get; private set; } = 0; // Size used for size comparison
     private float actualSize = 1f; // Size used for scaling
     private Vector3 targetScale;
     private CapsuleCollider2D col;
-    private Vector2 defaultColliderSize; 
+    private Vector2 defaultColliderSize;
 
     private void Awake()
     {
@@ -21,12 +21,12 @@ public class PlayerGrowth : MonoBehaviour
     private void Start()
     {
         targetScale = spritesParent.localScale;
-        defaultColliderSize = col.size; 
+        defaultColliderSize = col.size;
     }
     private void Update()
     {
         // Smoothly lerp cloud to target size
-        spritesParent.localScale = Vector3.Lerp(spritesParent.localScale, targetScale, scaleUpSpeed * Time.deltaTime);
+        spritesParent.localScale = Vector3.MoveTowards(spritesParent.localScale, targetScale, scaleUpSpeed * Time.deltaTime);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -45,16 +45,17 @@ public class PlayerGrowth : MonoBehaviour
         actualSize += expGain;
         targetScale = Vector3.one * SizeScaleRatio(actualSize);
 
-        // Update collider size
-        col.size = defaultColliderSize * SizeScaleRatio(actualSize); 
-
         // If size have incremented by 1
         // Zoom out camera
         if (actualSize > Size + 1)
         {
-            cameraController.SetScaleTo(SizeScaleRatio(Size));
             Size++;
-            OnPlayerSizeChanged.Raise(Size); 
+            OnPlayerSizeChanged.Raise(Size);
+            targetScale = Vector3.one * SizeScaleRatio(Size);
+            cameraController.SetScaleTo(SizeScaleRatio(Size));
+
+            // Update collider size
+            col.size = defaultColliderSize * SizeScaleRatio(Size);
         }
 
         cloud.Despawn();
@@ -66,6 +67,6 @@ public class PlayerGrowth : MonoBehaviour
     }
     public float SizeScaleRatio()
     {
-        return SizeScaleRatio(Size); 
+        return SizeScaleRatio(Size);
     }
 }

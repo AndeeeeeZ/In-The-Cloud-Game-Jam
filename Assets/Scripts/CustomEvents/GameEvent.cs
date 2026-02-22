@@ -10,7 +10,7 @@ public abstract class GameEvent<T> : ScriptableObject
         // Iterate backwards to prevent bug when listeners remove themselves 
         for (int i = listeners.Count - 1; i >= 0; i--)
         {
-            listeners[i].OnEventRaised(value);
+            listeners[i]?.OnEventRaised(value);
         }
     }
 
