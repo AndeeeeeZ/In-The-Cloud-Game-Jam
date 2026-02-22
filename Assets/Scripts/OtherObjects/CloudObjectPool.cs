@@ -34,6 +34,11 @@ public class CloudObjectPool : MonoBehaviour
 
     private void OnTakeFromPool(GameObject obj)
     {
+        if (obj == null)
+        {
+            Debug.LogWarning("ERROR: Trying to take an null obj"); 
+            return; 
+        }
         obj.SetActive(true);
     }
 
@@ -50,12 +55,10 @@ public class CloudObjectPool : MonoBehaviour
 
     public GameObject Get()
     {
-        if (pool == null)
-        {
-            Debug.LogWarning("ERROR: No pool found"); 
-            return null; 
-        }
-        return pool.Get();
+        GameObject obj = pool.Get(); 
+        if (obj == null)
+            obj = CreateObject(); 
+        return obj;
     }
 
     public void Release(GameObject obj)

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerGrowth : MonoBehaviour
@@ -6,12 +7,14 @@ public class PlayerGrowth : MonoBehaviour
     [SerializeField] private Transform spritesParent;
     [SerializeField] private CameraController cameraController;
     [SerializeField] private IntEvent OnPlayerSizeChanged;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
     public int Size { get; private set; } = 0; // Size used for size comparison
     private float actualSize = 1f; // Size used for scaling
     private Vector3 targetScale;
     private CapsuleCollider2D col;
     private Vector2 defaultColliderSize;
+    private int score = 0;
 
     private void Awake()
     {
@@ -26,7 +29,7 @@ public class PlayerGrowth : MonoBehaviour
     private void Update()
     {
         // Smoothly lerp cloud to target size
-        spritesParent.localScale = Vector3.MoveTowards(spritesParent.localScale, targetScale, scaleUpSpeed * Time.deltaTime);
+        spritesParent.localScale = Vector3.Lerp(spritesParent.localScale, targetScale, scaleUpSpeed * Time.deltaTime);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -41,6 +44,8 @@ public class PlayerGrowth : MonoBehaviour
         // Calculate exp gain
         float expGain = baseExpPerCloud / (5f * Mathf.Pow(10f, Size - cloud.Size));
 
+        UpdateScore((int)SizeScaleRatio(cloud.Size));
+
         // Update visual size
         actualSize += expGain;
         targetScale = Vector3.one * SizeScaleRatio(actualSize);
@@ -51,7 +56,6 @@ public class PlayerGrowth : MonoBehaviour
         {
             Size++;
             OnPlayerSizeChanged.Raise(Size);
-            targetScale = Vector3.one * SizeScaleRatio(Size);
             cameraController.SetScaleTo(SizeScaleRatio(Size));
 
             // Update collider size
@@ -59,6 +63,12 @@ public class PlayerGrowth : MonoBehaviour
         }
 
         cloud.Despawn();
+    }
+
+    private void UpdateScore(int newScore)
+    {
+        score += newScore;
+        scoreText.text = score.ToString();
     }
 
     public float SizeScaleRatio(float size)
