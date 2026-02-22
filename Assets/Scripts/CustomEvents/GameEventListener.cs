@@ -3,7 +3,10 @@ using UnityEngine.Events;
 public abstract class GameEventListener<T> : MonoBehaviour
 {
     public GameEvent<T> Event;
-    public UnityEvent<T> Response;
+    public UnityEvent<T> Response; 
+    /*
+    NOTE: Need to use the dynamic field when hooking up function with response in Unity Event
+    */
 
     public void OnEventRaised(T value)
     {

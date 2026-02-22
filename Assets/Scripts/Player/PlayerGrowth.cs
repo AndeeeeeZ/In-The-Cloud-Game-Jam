@@ -5,6 +5,7 @@ public class PlayerGrowth : MonoBehaviour
     [SerializeField] private float baseExpPerCloud, scaleUpSpeed;
     [SerializeField] private Transform spritesParent;
     [SerializeField] private CameraController cameraController;
+    [SerializeField] private IntEvent OnPlayerSizeChanged; 
 
     public int Size { get; private set; } = 1; // Size used for size comparison
     private float actualSize = 1f; // Size used for scaling
@@ -42,6 +43,7 @@ public class PlayerGrowth : MonoBehaviour
         {
             cameraController.SetScaleTo(SizeScaleRatio(Size));
             Size++;
+            OnPlayerSizeChanged.Raise(Size); 
         }
 
         cloud.Despawn();

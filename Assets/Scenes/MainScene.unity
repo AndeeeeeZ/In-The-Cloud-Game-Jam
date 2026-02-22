@@ -356,7 +356,7 @@ MonoBehaviour:
       - m_Target: {fileID: 416639812}
         m_TargetAssemblyTypeName: Cloud, Assembly-CSharp
         m_MethodName: OnPlayerSizeChanged
-        m_Mode: 3
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -882,6 +882,7 @@ MonoBehaviour:
   scaleUpSpeed: 2
   spritesParent: {fileID: 329639176}
   cameraController: {fileID: 1220631317}
+  OnPlayerSizeChanged: {fileID: 11400000, guid: 304e3eb075ca5ef45928982ef0932bff, type: 2}
 --- !u!1 &1373198256
 GameObject:
   m_ObjectHideFlags: 0

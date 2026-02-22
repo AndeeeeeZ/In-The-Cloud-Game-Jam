@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Cloud : MonoBehaviour
@@ -35,6 +36,12 @@ public class Cloud : MonoBehaviour
 
     public void OnPlayerSizeChanged(int playerSize)
     {
+        // Despawn this cloud if it's too small compared to player
+        if (playerSize - Size > 2)
+        {
+            Despawn(); 
+            return; 
+        }
         UpdateColor(playerSize); 
     }
 
