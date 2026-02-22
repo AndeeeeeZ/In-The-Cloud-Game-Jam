@@ -3,15 +3,9 @@ using UnityEngine;
 
 public class Cloud : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer spriteRenderer;
     public int Size { get; private set; }
     private CloudObjectPool pool;
-    private SpriteRenderer sr;
-
-    private void Awake()
-    {
-        sr = GetComponent<SpriteRenderer>();
-    }
-
     public void SetPool(CloudObjectPool p)
     {
         pool = p;
@@ -25,8 +19,8 @@ public class Cloud : MonoBehaviour
     {
         Size = s;
         transform.localScale = Vector3.one * p.SizeScaleRatio(Size);
-        sr.sprite = sprite;
-        UpdateColor(p.Size); 
+        spriteRenderer.sprite = sprite;
+        UpdateColor(p.Size);
     }
 
     public void ResetState()
@@ -39,17 +33,17 @@ public class Cloud : MonoBehaviour
         // Despawn this cloud if it's too small compared to player
         if (playerSize - Size > 2)
         {
-            Despawn(); 
-            return; 
+            Despawn();
+            return;
         }
-        UpdateColor(playerSize); 
+        UpdateColor(playerSize);
     }
 
     private void UpdateColor(int playerSize)
     {
         if (playerSize >= Size)
-            sr.color = Color.green; 
+            spriteRenderer.color = Color.green;
         else
-            sr.color = Color.red;
+            spriteRenderer.color = Color.red;
     }
 }
