@@ -1,0 +1,5 @@
+- Note that speed should be relative to the size
+- Increase min spawn size
+- Revise spawn to avoid overlapping with each other
+- fix spawn outside of screen that only four directions and no diagonals
+- scaling should be exponential to give that increase feeling despite increasing size
