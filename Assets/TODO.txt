@@ -3,3 +3,6 @@
 - Fix pool deleting stuff within screen to spawn more
 - Add timer
 - Fix screen jitter
+- Speed got off when player is too big
+
+- Make player smaller when touching big clouds

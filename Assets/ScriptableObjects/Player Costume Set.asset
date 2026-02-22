@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1f4c548f7e147439510edc314ef11a, type: 3}
+  m_Name: Player Costume Set
+  m_EditorClassIdentifier: 
+  cloudBaseIndex: 0
+  bottomIndex: 0
+  rightIndex: 0
+  leftIndex: 0
+  faceIndex: 0
+  cloudBases:
+  - {fileID: 21300000, guid: 9f0a71711c175a94ba26b79b699a9582, type: 3}
+  - {fileID: 21300000, guid: f96a10c5a83082f459fa407e31bcd543, type: 3}
+  - {fileID: 21300000, guid: 0ec9dbd5db2b0fa4082e62f80f75fb19, type: 3}
+  - {fileID: 21300000, guid: 6023ee7a98c134049b4416a19b202d31, type: 3}
+  bottoms:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 20ac593243f32ed4aaa0543490d30d7d, type: 3}
+  - {fileID: 21300000, guid: 73aa27162b613a3469113378d97b299f, type: 3}
+  - {fileID: 21300000, guid: 8528c404177134a4182a2e10c2e7238d, type: 3}
+  rightSides:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: edb78067ba24c6242aba2d3426d828cb, type: 3}
+  - {fileID: 21300000, guid: 97282beed21c0834c850d130353004d3, type: 3}
+  leftSides:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 4eddc1cb007175546bdc8c8dd332df14, type: 3}
+  - {fileID: 21300000, guid: ff8231cebc5bb304c97a9bb828fe791e, type: 3}
+  - {fileID: 21300000, guid: d28eb891446ae3542b6b65461b871102, type: 3}
+  faces:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 04e2d301e20466f429510cacce9e622b, type: 3}
+  - {fileID: 21300000, guid: c4e686a07bc2abe4fb581b15886d51e6, type: 3}
+  - {fileID: 21300000, guid: bb96901f6b71cab44b778803bc5d027b, type: 3}
+  - {fileID: 21300000, guid: f9763d58374d42547b1dc1bb8475862e, type: 3}
+  - {fileID: 21300000, guid: 13e19cab1a8302d4d85827f1829c4b73, type: 3}
+  OnCostumeChanged: {fileID: 11400000, guid: 5fee20f3afdacc94ca4460c008704351, type: 2}

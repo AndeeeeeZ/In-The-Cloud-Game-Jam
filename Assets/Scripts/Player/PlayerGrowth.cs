@@ -10,7 +10,7 @@ public class PlayerGrowth : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
 
     public int Size { get; private set; } = 0; // Size used for size comparison
-    private float actualSize = 1f; // Size used for scaling
+    private float actualSize = 0f; // Size used for scaling
     private Vector3 targetScale;
     private CapsuleCollider2D col;
     private Vector2 defaultColliderSize;

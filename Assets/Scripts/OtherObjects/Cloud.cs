@@ -4,6 +4,7 @@ using UnityEngine;
 public class Cloud : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Color eatableColor, non_eatableColor;
     public int Size { get; private set; }
     private CloudObjectPool pool;
     public void SetPool(CloudObjectPool p)
@@ -42,8 +43,8 @@ public class Cloud : MonoBehaviour
     private void UpdateColor(int playerSize)
     {
         if (playerSize >= Size)
-            spriteRenderer.color = Color.green;
+            spriteRenderer.color = eatableColor;
         else
-            spriteRenderer.color = Color.red;
+            spriteRenderer.color = non_eatableColor;
     }
 }
