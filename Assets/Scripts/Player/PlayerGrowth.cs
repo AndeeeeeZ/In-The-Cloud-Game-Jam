@@ -3,17 +3,25 @@ using UnityEngine;
 public class PlayerGrowth : MonoBehaviour
 {
     [SerializeField] private float baseExpPerCloud, scaleUpSpeed;
-    [SerializeField] private Transform spritesParent;
+    [SerializeField] private Transform spritesParent; 
     [SerializeField] private CameraController cameraController;
     [SerializeField] private IntEvent OnPlayerSizeChanged; 
 
     public int Size { get; private set; } = 1; // Size used for size comparison
     private float actualSize = 1f; // Size used for scaling
     private Vector3 targetScale;
+    private CapsuleCollider2D col;
+    private Vector2 defaultColliderSize; 
+
+    private void Awake()
+    {
+        col = GetComponent<CapsuleCollider2D>();
+    }
 
     private void Start()
     {
         targetScale = spritesParent.localScale;
+        defaultColliderSize = col.size; 
     }
     private void Update()
     {
@@ -36,6 +44,9 @@ public class PlayerGrowth : MonoBehaviour
         // Update visual size
         actualSize += expGain;
         targetScale = Vector3.one * SizeScaleRatio(actualSize);
+
+        // Update collider size
+        col.size = defaultColliderSize * SizeScaleRatio(actualSize); 
 
         // If size have incremented by 1
         // Zoom out camera
