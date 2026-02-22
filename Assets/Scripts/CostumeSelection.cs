@@ -8,6 +8,7 @@ public class CostumeSelection : MonoBehaviour
 
     private void Start()
     {
+        costume.Reset(); 
         UpdateIndexIndications(); 
     }
 
