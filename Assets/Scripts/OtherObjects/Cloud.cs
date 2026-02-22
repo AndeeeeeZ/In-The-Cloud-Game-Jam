@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Cloud : MonoBehaviour
 {
-    public float Size { get; private set; }
+    public int Size { get; private set; }
     private CloudObjectPool pool;
     private SpriteRenderer sr;
 
@@ -20,10 +20,10 @@ public class Cloud : MonoBehaviour
         pool.Release(gameObject);
     }
 
-    public void Initialize(float s, Sprite sprite)
+    public void Initialize(int s, Sprite sprite)
     {
         Size = s;
-        transform.localScale *= s;
+        transform.localScale *= Mathf.Sqrt(Size);
         sr.sprite = sprite;
     }
 

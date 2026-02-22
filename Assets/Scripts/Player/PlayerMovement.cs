@@ -8,18 +8,20 @@ public class PlayerMovement : MonoBehaviour
     private Inputs input;
     private Rigidbody2D rb;
     private Vector2 direction; 
+    private PlayerGrowth playerGrowth; 
 
     private void Awake()
     {
         input = new Inputs();
         
         rb = GetComponent<Rigidbody2D>();
+        playerGrowth = GetComponent<PlayerGrowth>(); 
         direction = Vector2.zero; 
     }
 
     private void Update()
     {
-        rb.linearVelocity = direction.normalized * moveSpeed; 
+        rb.linearVelocity = direction.normalized * moveSpeed * Mathf.Sqrt(playerGrowth.Size); 
     }
 
     private void OnEnable()

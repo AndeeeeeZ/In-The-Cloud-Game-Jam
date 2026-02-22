@@ -56,9 +56,9 @@ public class CameraController : MonoBehaviour
         cam.Lens.OrthographicSize = newSize; 
     }
 
-    public void MultiplyZoomBy(float amount)
+    public void SetScaleTo(float scale)
     {
-        normalScale += amount; 
-        targetScale += amount; 
+        targetScale *= scale / normalScale; 
+        normalScale = scale; 
     }
 }

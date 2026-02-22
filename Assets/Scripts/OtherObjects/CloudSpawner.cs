@@ -1,3 +1,4 @@
+using System.Drawing;
 using UnityEngine;
 
 public class CloudSpawner : MonoBehaviour
@@ -12,7 +13,7 @@ public class CloudSpawner : MonoBehaviour
     [Header("Values")]
     [SerializeField] private float spawnRadius = 10f;
     [SerializeField] private float spawnInterval = 1f;
-    [SerializeField] private float minSpawnBuffer, maxSpawnBuffer;
+    [SerializeField] private float spawnBuffer;
     [SerializeField] private int initialAmount;
 
     private Camera cam;
@@ -37,28 +38,26 @@ public class CloudSpawner : MonoBehaviour
         Vector2 pos = Random.insideUnitCircle * spawnRadius + (Vector2)targetTransform.position;
         SpawnCloudAt(pos);
     }
+    private float GetCameraRadius()
+    {
+        float height = 2f * cam.orthographicSize;
+        float width = height * cam.aspect;
 
+        // Radius that fully covers the screen
+        return Mathf.Sqrt(width * width + height * height) * 0.5f;
+    }
     private void SpawnCloudOutsideOfScreen()
     {
-        int side = Random.Range(0, 4);
-        Vector3 viewportPos = Vector3.zero;
+        float camRadius = GetCameraRadius();
+        float buffer = Random.Range(0, spawnBuffer) * player.Size;
 
-        float buffer = Random.Range(minSpawnBuffer, maxSpawnBuffer);
+        float spawnRadius = camRadius + buffer * Mathf.Sqrt(player.Size);
 
-        switch (side)
-        {
-            case 0: viewportPos = new Vector3(Random.value, 1 + buffer, 0); break; // Top
-            case 1: viewportPos = new Vector3(Random.value, -buffer, 0); break;    // Bottom
-            case 2: viewportPos = new Vector3(-buffer, Random.value, 0); break;    // Left
-            case 3: viewportPos = new Vector3(1 + buffer, Random.value, 0); break; // Right
-        }
+        Vector2 dir = Random.insideUnitCircle.normalized;
+        Vector2 spawnPos = (Vector2)targetTransform.position + dir * spawnRadius;
 
-        Vector3 worldPos = cam.ViewportToWorldPoint(viewportPos);
-        worldPos.z = 0f;
-
-        SpawnCloudAt(worldPos);
+        SpawnCloudAt(spawnPos);
     }
-
     private void SpawnCloudAt(Vector3 pos)
     {
         GameObject obj = pool.Get();
@@ -70,7 +69,7 @@ public class CloudSpawner : MonoBehaviour
 
         Sprite sprite = sprites[Random.Range(0, sprites.Length)];
 
-        Cloud cloud = obj.GetComponent<Cloud>(); 
+        Cloud cloud = obj.GetComponent<Cloud>();
         cloud.Initialize(size, sprite);
     }
 }

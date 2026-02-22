@@ -30,18 +30,17 @@ public class PlayerGrowth : MonoBehaviour
             return;
         
         // Calculate exp gain
-        // The current formula should take 5 cloud to increment Size by 1 when baseExpPerCloud = 1
-        float expGain = baseExpPerCloud * (cloud.Size / (Size * 5f)); 
+        float expGain = baseExpPerCloud / (5f * Mathf.Pow(10f, Size - cloud.Size)); 
         
         // Update visual size
         actualSize += expGain;
-        transform.localScale = Vector3.one * actualSize;
+        transform.localScale = Vector3.one * Mathf.Sqrt(actualSize);
 
         // If size have incremented by 1
         // Zoom out camera
         if (actualSize > Size + 1)
         {
-            cameraController.MultiplyZoomBy(actualSize / Size);
+            cameraController.SetScaleTo(Mathf.Sqrt(Size));
             Size++;
         }
 
