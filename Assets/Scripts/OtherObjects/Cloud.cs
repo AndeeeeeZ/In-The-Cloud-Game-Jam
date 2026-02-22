@@ -20,11 +20,12 @@ public class Cloud : MonoBehaviour
         pool.Release(gameObject);
     }
 
-    public void Initialize(int s, Sprite sprite)
+    public void Initialize(int s, Sprite sprite, PlayerGrowth p)
     {
         Size = s;
-        transform.localScale *= Mathf.Sqrt(Size);
+        transform.localScale = Vector3.one * p.SizeScaleRatio(Size);
         sr.sprite = sprite;
+        UpdateColor(p.Size); 
     }
 
     public void ResetState()
@@ -32,4 +33,16 @@ public class Cloud : MonoBehaviour
         transform.localScale = Vector3.one;
     }
 
+    public void OnPlayerSizeChanged(int playerSize)
+    {
+        UpdateColor(playerSize); 
+    }
+
+    private void UpdateColor(int playerSize)
+    {
+        if (playerSize >= Size)
+            sr.color = Color.green; 
+        else
+            sr.color = Color.red;
+    }
 }

@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 416639813}
   - component: {fileID: 416639812}
   - component: {fileID: 416639815}
+  - component: {fileID: 416639816}
   m_Layer: 0
   m_Name: Cloud_Prefab
   m_TagString: Untagged
@@ -294,7 +295,7 @@ Transform:
   m_GameObject: {fileID: 416639811}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.2770534, y: 5.1130624, z: 0}
+  m_LocalPosition: {x: 3.88, y: 0.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -336,6 +337,34 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &416639816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416639811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d7bd49e2abdae408ac6ee5becbc8a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 304e3eb075ca5ef45928982ef0932bff, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 416639812}
+        m_TargetAssemblyTypeName: Cloud, Assembly-CSharp
+        m_MethodName: OnPlayerSizeChanged
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,7 +472,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -778,9 +807,9 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.006052375, y: 0}
-  m_Size: {x: 3.3846471, y: 3.3846471}
-  m_Direction: 0
+  m_Offset: {x: 0.077297956, y: 0.15159602}
+  m_Size: {x: 2.0599337, y: 1.1978059}
+  m_Direction: 1
 --- !u!4 &1279434566
 Transform:
   m_ObjectHideFlags: 0
@@ -809,7 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333d8a2d364d38c4cbdf0b7486459943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 5
 --- !u!50 &1279434568
 Rigidbody2D:
   serializedVersion: 5
@@ -883,7 +912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 320624890}
-  sizes: 00000000000000000000000000000000000000000000000000000000010000000100000001000000020000000200000003000000
+  sizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000010000000100000001000000
   sprites:
   - {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   targetTransform: {fileID: 1279434566}
@@ -964,7 +993,7 @@ Transform:
   m_GameObject: {fileID: 2089412302}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.43, y: -1.49, z: 0}
+  m_LocalPosition: {x: 0.23, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1099,7 +1128,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 7
+    OrthographicSize: 4
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

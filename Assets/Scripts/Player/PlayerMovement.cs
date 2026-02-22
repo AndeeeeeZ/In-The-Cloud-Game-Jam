@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        rb.linearVelocity = direction.normalized * moveSpeed * Mathf.Sqrt(playerGrowth.Size); 
+        rb.linearVelocity = direction.normalized * moveSpeed * playerGrowth.SizeScaleRatio(); 
     }
 
     private void OnEnable()

@@ -1,4 +1,3 @@
-using System.Drawing;
 using UnityEngine;
 
 public class CloudSpawner : MonoBehaviour
@@ -49,9 +48,9 @@ public class CloudSpawner : MonoBehaviour
     private void SpawnCloudOutsideOfScreen()
     {
         float camRadius = GetCameraRadius();
-        float buffer = Random.Range(0, spawnBuffer) * player.Size;
+        float buffer = Random.Range(0, spawnBuffer) * player.SizeScaleRatio();
 
-        float spawnRadius = camRadius + buffer * Mathf.Sqrt(player.Size);
+        float spawnRadius = camRadius + buffer;
 
         Vector2 dir = Random.insideUnitCircle.normalized;
         Vector2 spawnPos = (Vector2)targetTransform.position + dir * spawnRadius;
@@ -64,12 +63,13 @@ public class CloudSpawner : MonoBehaviour
         obj.transform.position = pos;
 
         int size = sizes[Random.Range(0, sizes.Length)];
-
         size += player.Size; // Make sure clouds smaller than player stops spawning
+        size = Mathf.Max(1, size); 
 
         Sprite sprite = sprites[Random.Range(0, sprites.Length)];
 
         Cloud cloud = obj.GetComponent<Cloud>();
-        cloud.Initialize(size, sprite);
+        cloud.Initialize(size, sprite, player);
     }
+
 }
