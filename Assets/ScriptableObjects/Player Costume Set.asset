@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1f4c548f7e147439510edc314ef11a, type: 3}
   m_Name: Player Costume Set
   m_EditorClassIdentifier: 
-  cloudBaseIndex: 0
-  bottomIndex: 0
-  rightIndex: 0
-  leftIndex: 0
-  faceIndex: 0
+  cloudBaseIndex: 4
+  bottomIndex: 1
+  rightIndex: 1
+  leftIndex: 1
+  faceIndex: 6
   cloudBases:
+  - {fileID: 21300000, guid: eb016ec10cb3b8c4cb888ae0ba473f8e, type: 3}
+  - {fileID: 21300000, guid: 188c699462323d1438e91291ab183052, type: 3}
+  - {fileID: 21300000, guid: 376cabf288d4284429e5b7d0b184c54d, type: 3}
+  - {fileID: 21300000, guid: 99860f0942ff7134c81e681043797412, type: 3}
+  - {fileID: 21300000, guid: 1ac18a0466f0ca1459102f75dedb0518, type: 3}
   - {fileID: 21300000, guid: 9f0a71711c175a94ba26b79b699a9582, type: 3}
   - {fileID: 21300000, guid: f96a10c5a83082f459fa407e31bcd543, type: 3}
   - {fileID: 21300000, guid: 0ec9dbd5db2b0fa4082e62f80f75fb19, type: 3}
@@ -43,4 +48,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bb96901f6b71cab44b778803bc5d027b, type: 3}
   - {fileID: 21300000, guid: f9763d58374d42547b1dc1bb8475862e, type: 3}
   - {fileID: 21300000, guid: 13e19cab1a8302d4d85827f1829c4b73, type: 3}
+  - {fileID: 21300000, guid: de8803ffb706f434bb6ff0e7ddf9f565, type: 3}
   OnCostumeChanged: {fileID: 11400000, guid: 5fee20f3afdacc94ca4460c008704351, type: 2}

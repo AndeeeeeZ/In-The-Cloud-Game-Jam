@@ -8,6 +8,7 @@ public class PlayerGrowth : MonoBehaviour
     [SerializeField] private CameraController cameraController;
     [SerializeField] private IntEvent OnPlayerSizeChanged;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private IntValue scoreValue; 
 
     public int Size { get; private set; } = 0; // Size used for size comparison
     private float actualSize = 0f; // Size used for scaling
@@ -19,6 +20,7 @@ public class PlayerGrowth : MonoBehaviour
     private void Awake()
     {
         col = GetComponent<CapsuleCollider2D>();
+        scoreValue.value = 0; 
     }
 
     private void Start()
@@ -78,5 +80,9 @@ public class PlayerGrowth : MonoBehaviour
     public float SizeScaleRatio()
     {
         return SizeScaleRatio(Size);
+    }
+    public void RecordScore()
+    {
+        scoreValue.value = score; 
     }
 }
