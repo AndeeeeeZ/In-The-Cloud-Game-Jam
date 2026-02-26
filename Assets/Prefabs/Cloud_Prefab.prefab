@@ -137,6 +137,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 8180902978286659208}
   eatableColor: {r: 1, g: 1, b: 1, a: 1}
   non_eatableColor: {r: 1, g: 0.72156864, b: 0.8, a: 1}
+  tooSmallColor: {r: 0.91823894, g: 0.91823894, b: 0.91823894, a: 1}
 --- !u!114 &5714874006568626944
 MonoBehaviour:
   m_ObjectHideFlags: 0
