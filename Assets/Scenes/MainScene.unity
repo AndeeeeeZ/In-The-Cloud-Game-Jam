@@ -673,7 +673,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.23359433, g: 0.37021536, b: 0.5849056, a: 0}
+  m_BackGroundColor: {r: 0.1137255, g: 0.13725491, b: 0.37254903, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1452,7 +1452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7606b7d24ebf01845a6bd10fe097a46c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseExpPerCloud: 1.3
+  baseExpPerCloud: 1.8
   scaleUpSpeed: 2
   spritesParent: {fileID: 329639176}
   cameraController: {fileID: 1220631317}
