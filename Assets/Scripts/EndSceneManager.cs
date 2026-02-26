@@ -1,7 +1,5 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class EndSceneManager : MonoBehaviour
 {
@@ -24,7 +22,7 @@ public class EndSceneManager : MonoBehaviour
         {
             comment = "HELLO??? LOCK IN BRO";
         }
-        else if (s < 10)
+        else if (s < 100)
         {
             comment = "You can do better...";
         }
@@ -36,15 +34,19 @@ public class EndSceneManager : MonoBehaviour
         {
             comment = "Seems pretty good";
         }
-        else if (s < 1000)
+        else if (s < 700)
         {
-            comment = "Impressive.";
+            comment = "Almost there";
         }
-        else if (s < 3000)
+        else if (s < 1000)
         {
             comment = "WOW!";
         }
-        else if (s < 10000)
+        else if (s < 1500)
+        {
+            comment = "That's crazy!"; 
+        }
+        else if (s < 2000)
         {
             comment = "HOW DID YOU EVEN DO THAT???";
         }

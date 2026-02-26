@@ -1,8 +1,8 @@
-- Revise spawn to avoid overlapping with each other
 - Spawn in direction of movement
 - Fix pool deleting stuff within screen to spawn more
-- Add timer
 - Fix screen jitter
-- Speed got off when player is too big
+- Add scene transition
+- Add sound effects
+
 
 - Make player smaller when touching big clouds

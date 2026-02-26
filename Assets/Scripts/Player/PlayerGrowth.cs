@@ -70,7 +70,7 @@ public class PlayerGrowth : MonoBehaviour
     private void UpdateScore(int newScore)
     {
         score += newScore;
-        scoreText.text = score.ToString();
+        scoreText.text = string.Format($"{score:D5}");
     }
 
     public float SizeScaleRatio(float size)
@@ -86,3 +86,4 @@ public class PlayerGrowth : MonoBehaviour
         scoreValue.value = score; 
     }
 }
+
