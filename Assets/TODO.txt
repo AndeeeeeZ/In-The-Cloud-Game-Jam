@@ -3,6 +3,9 @@
 - Fix screen jitter
 - Add scene transition
 - Add sound effects
+- Change UI 
+    - Change button UI
+- Add exp bar during game?
 
 
 - Make player smaller when touching big clouds

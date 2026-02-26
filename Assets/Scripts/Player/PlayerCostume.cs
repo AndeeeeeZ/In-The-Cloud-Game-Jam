@@ -44,6 +44,17 @@ public class PlayerCostume : ScriptableObject
         OnCostumeChanged.Raise();
     }
 
+    public void GetRandom()
+    {
+        cloudBaseIndex = Random.Range(0, cloudBases.Length); 
+        bottomIndex = Random.Range(0, bottoms.Length); 
+        faceIndex = Random.Range(0, faces.Length); 
+        leftIndex = Random.Range(0, leftSides.Length); 
+        rightIndex = Random.Range(0, rightSides.Length); 
+
+        OnCostumeChanged.Raise(); 
+    }
+
 
     public void Reset()
     {
