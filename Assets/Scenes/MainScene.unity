@@ -1454,7 +1454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7606b7d24ebf01845a6bd10fe097a46c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseExpPerCloud: 1.8
+  baseExpPerCloud: 1.5
   scaleUpSpeed: 2
   spritesParent: {fileID: 329639176}
   cameraController: {fileID: 1220631317}
@@ -1663,6 +1663,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9b181cba6165b3c40b47d152ee8f5f04, type: 3}
   targetTransform: {fileID: 1279434566}
   player: {fileID: 1279434569}
+  playerMovement: {fileID: 1279434567}
   spawnRadius: 10
   spawnInterval: 0.2
   spawnBufferMin: 1
@@ -1708,8 +1709,8 @@ Transform:
   m_GameObject: {fileID: 1384127312}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1, y: -63, z: 0}
-  m_LocalScale: {x: 0.16, y: 0.16, z: 0.16}
+  m_LocalPosition: {x: -3, y: -70.6, z: 0}
+  m_LocalScale: {x: 0.18000002, y: 0.18000002, z: 0.18000002}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1035714708}

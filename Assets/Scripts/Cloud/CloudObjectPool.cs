@@ -5,7 +5,7 @@ public class CloudObjectPool : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
     [SerializeField] private Transform cloudParent; // For organization in inspector
-    [SerializeField] private int defaultCapacity = 50;
+    [SerializeField] private int defaultCapacity = 100;
     [SerializeField] private int maxSize = 200;
     private ObjectPool<GameObject> pool;
     private void Awake()

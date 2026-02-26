@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class CloudSpawner : MonoBehaviour
@@ -9,6 +10,7 @@ public class CloudSpawner : MonoBehaviour
     [Header("Player")]
     [SerializeField] private Transform targetTransform;
     [SerializeField] private PlayerGrowth player;
+    [SerializeField] private PlayerMovement playerMovement; 
     [Header("Values")]
     [SerializeField] private float spawnRadius = 10f;
     [SerializeField] private float spawnInterval = 1f;
@@ -52,7 +54,21 @@ public class CloudSpawner : MonoBehaviour
 
         float spawnRadius = camRadius + buffer;
 
-        Vector2 dir = Random.insideUnitCircle.normalized;
+        // Vector2 dir = Random.insideUnitCircle.normalized;
+
+
+        Vector2 dir = playerMovement.GetDirection(); 
+        // If player isn't moving or 1 in 4 chance to get random spawn
+        if (dir == Vector2.zero || Random.Range(0, 4) == 0 )
+        {
+            dir = Random.insideUnitCircle.normalized;
+        } 
+        else
+        {
+            // Add variation to the player direction
+            dir += new Vector2(Random.Range(-0.3f, 0.3f), Random.Range(-0.3f, 0.3f));
+        }
+
         Vector2 spawnPos = (Vector2)targetTransform.position + dir * spawnRadius;
 
         SpawnCloudAt(spawnPos);

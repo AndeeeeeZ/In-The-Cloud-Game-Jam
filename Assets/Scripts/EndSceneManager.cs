@@ -18,35 +18,35 @@ public class EndSceneManager : MonoBehaviour
         string comment;
 
         int s = score.value;
-        if (s < 10)
+        if (s < 100)
         {
             comment = "HELLO??? LOCK IN BRO";
         }
-        else if (s < 100)
+        else if (s < 300)
         {
             comment = "You can do better...";
         }
-        else if (s < 300)
+        else if (s < 500)
         {
             comment = "Okay...?";
         }
-        else if (s < 500)
+        else if (s < 800)
         {
             comment = "Seems pretty good";
         }
-        else if (s < 700)
+        else if (s < 1000)
         {
             comment = "Almost there";
         }
-        else if (s < 1000)
+        else if (s < 1500)
         {
             comment = "WOW!";
         }
-        else if (s < 1500)
+        else if (s < 2250)
         {
             comment = "That's crazy!"; 
         }
-        else if (s < 2000)
+        else if (s < 3000)
         {
             comment = "HOW DID YOU EVEN DO THAT???";
         }

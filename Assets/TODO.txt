@@ -1,6 +1,6 @@
 - Spawn in direction of movement
 - Fix pool deleting stuff within screen to spawn more
-- Fix screen jitter
+- Fix screen jitter?
 - Add scene transition
 - Add sound effects
 - Change UI 

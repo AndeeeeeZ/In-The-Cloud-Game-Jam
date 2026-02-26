@@ -44,4 +44,9 @@ public class PlayerMovement : MonoBehaviour
     {
         direction = context.ReadValue<Vector2>(); 
     }
+
+    public Vector2 GetDirection()
+    {
+        return direction; 
+    }
 }
