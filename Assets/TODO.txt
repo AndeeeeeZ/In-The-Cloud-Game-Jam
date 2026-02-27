@@ -6,6 +6,7 @@
 - Change UI 
     - Change button UI
 - Add exp bar during game?
+- Add input guide and game play guide
 
 
 - Make player smaller when touching big clouds
