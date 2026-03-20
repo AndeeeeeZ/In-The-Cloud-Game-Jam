@@ -1,4 +1,5 @@
-- Spawn in direction of movement
+- Put instruction inside game
+
 - Fix pool deleting stuff within screen to spawn more
 - Fix screen jitter?
 - Add scene transition
@@ -6,7 +7,6 @@
 - Change UI 
     - Change button UI
 - Add exp bar during game?
-- Add input guide and game play guide
-
 
 - Make player smaller when touching big clouds
+
